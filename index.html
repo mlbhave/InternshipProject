@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberShield | Cyber Security Awareness</title>
+  <meta name="description" content="Learn how to protect yourself online — threats, phishing, password safety, and practical cyber security habits." />
+
+  <!-- Google Fonts: Orbitron (display/headings), Inter (body), Share Tech Mono (terminal/utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Project stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       PRELOADER — shown while the page assets are loading
+  ========================================================== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <i class="fa-solid fa-shield-halved preloader-icon"></i>
+      <p class="preloader-text">Establishing secure connection<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       NAVIGATION BAR
+  ========================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#home" class="logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Cyber<span class="accent-text">Shield</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#threats" class="nav-link">Threats</a>
+        <a href="#password" class="nav-link">Passwords</a>
+        <a href="#phishing" class="nav-link">Phishing</a>
+        <a href="#tips" class="nav-link">Safety Tips</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================== -->
+  <section class="hero" id="home">
+    <!-- Animated network/particle background, drawn by JS -->
+    <canvas id="networkCanvas" class="hero-canvas"></canvas>
+    <div class="hero-scanline"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">// CYBER SECURITY AWARENESS INITIATIVE</p>
+        <h1 class="hero-title">
+          Stay Safe in the <span class="gradient-text">Digital World</span>
+        </h1>
+
+        <!-- Typing effect target -->
+        <p class="hero-typed">
+          <span id="typedText"></span><span class="cursor">|</span>
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary pulse">
+            Learn More <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="#quiz" class="btn btn-ghost">
+            Test Your Knowledge <i class="fa-solid fa-bolt"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Fake terminal mock-up: signature visual element of the hero -->
+      <div class="terminal" id="terminal">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">security_scan.sh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <!-- Lines injected/animated by script.js -->
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <i class="fa-solid fa-mouse"></i>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- =========================================================
+       ABOUT CYBERSECURITY SECTION
+  ========================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="eyebrow center">ABOUT</p>
+      <h2 class="section-title center">What Is Cybersecurity?</h2>
+      <p class="section-subtitle center">
+        Cybersecurity is the practice of protecting devices, networks, and data from unauthorized
+        access, damage, or theft. As more of our lives move online — banking, shopping, education,
+        and work — staying safe digitally is no longer optional. A single careless click can expose
+        personal data, drain a bank account, or lock you out of years of work. Awareness is the
+        cheapest, most effective defense anyone can build.
+      </p>
+
+      <div class="grid grid-4 reveal-group">
+        <div class="card about-card reveal">
+          <div class="icon-circle"><i class="fa-solid fa-user-secret"></i></div>
+          <h3>Confidentiality</h3>
+          <p>Keeping sensitive information private and accessible only to people who are authorized to see it.</p>
+        </div>
+        <div class="card about-card reveal">
+          <div class="icon-circle"><i class="fa-solid fa-fingerprint"></i></div>
+          <h3>Integrity</h3>
+          <p>Making sure data isn't altered, corrupted, or tampered with — what you saved is what you get back.</p>
+        </div>
+        <div class="card about-card reveal">
+          <div class="icon-circle"><i class="fa-solid fa-server"></i></div>
+          <h3>Availability</h3>
+          <p>Ensuring systems and information are accessible to the right people exactly when they're needed.</p>
+        </div>
+        <div class="card about-card reveal">
+          <div class="icon-circle"><i class="fa-solid fa-brain"></i></div>
+          <h3>The Human Firewall</h3>
+          <p>Most breaches start with a person, not a machine. An informed user is the strongest layer of defense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       COMMON CYBER THREATS SECTION
+  ========================================================== -->
+  <section class="section section-alt" id="threats">
+    <div class="container">
+      <p class="eyebrow center">KNOW YOUR ENEMY</p>
+      <h2 class="section-title center">Common Cyber Threats</h2>
+      <p class="section-subtitle center">
+        Understanding how an attack works is the first step toward stopping it. Here are five threats
+        every internet user should be able to recognize.
+      </p>
+
+      <div class="grid grid-3 reveal-group" id="threatGrid">
+
+        <!-- Malware -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-bug"></i></div>
+          <h3>Malware</h3>
+          <p>Malicious software designed to damage, disrupt, or gain unauthorized access to a device —
+            including viruses, worms, and trojans hidden inside downloads or attachments.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Only download apps and files from trusted sources</li>
+            <li>Keep antivirus software active and updated</li>
+            <li>Avoid pirated software and unknown USB drives</li>
+          </ul>
+        </div>
+
+        <!-- Phishing -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-fish"></i></div>
+          <h3>Phishing</h3>
+          <p>Deceptive emails, texts, or websites that impersonate trusted brands or people to trick you
+            into revealing passwords, card numbers, or other personal data.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Never click links from unexpected or urgent messages</li>
+            <li>Check the sender's email address carefully</li>
+            <li>Go directly to the official website instead of clicking</li>
+          </ul>
+        </div>
+
+        <!-- Ransomware -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-lock"></i></div>
+          <h3>Ransomware</h3>
+          <p>A type of malware that encrypts your files and demands payment — usually in
+            cryptocurrency — to restore access. There's no guarantee paying gets your data back.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Back up important files regularly, offline if possible</li>
+            <li>Don't open attachments from unknown senders</li>
+            <li>Patch your operating system and apps promptly</li>
+          </ul>
+        </div>
+
+        <!-- Spyware -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-eye"></i></div>
+          <h3>Spyware</h3>
+          <p>Software that secretly monitors your activity — keystrokes, browsing habits, even camera
+            and microphone access — and sends that data to an attacker without your knowledge.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Review app permissions before installing</li>
+            <li>Use reputable anti-spyware / antivirus tools</li>
+            <li>Avoid clicking pop-ups and unverified ad links</li>
+          </ul>
+        </div>
+
+        <!-- Weak Passwords -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-key"></i></div>
+          <h3>Weak Passwords</h3>
+          <p>Short, reused, or predictable passwords are one of the easiest entry points for attackers
+            using automated guessing tools or leaked password databases.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Use a unique password for every account</li>
+            <li>Aim for 12+ characters mixing case, numbers, symbols</li>
+            <li>Use a password manager instead of memorizing or reusing</li>
+          </ul>
+        </div>
+
+        <!-- Bonus: Social Engineering, keeps the grid visually balanced (2 rows of 3) -->
+        <div class="card threat-card reveal">
+          <div class="icon-circle danger"><i class="fa-solid fa-user-ninja"></i></div>
+          <h3>Social Engineering</h3>
+          <p>Psychological manipulation that pressures people into breaking normal security
+            procedure — posing as IT support, a coworker, or an authority figure.</p>
+          <h4 class="tips-label"><i class="fa-solid fa-shield-halved"></i> Prevention Tips</h4>
+          <ul class="tips-list">
+            <li>Verify identity through a separate, known channel</li>
+            <li>Be suspicious of urgency, secrecy, or pressure</li>
+            <li>Follow your organization's verification process</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PASSWORD SECURITY SECTION — live strength checker
+  ========================================================== -->
+  <section class="section" id="password">
+    <div class="container">
+      <p class="eyebrow center">STAY PROTECTED</p>
+      <h2 class="section-title center">How Strong Is Your Password?</h2>
+      <p class="section-subtitle center">
+        Type a password below to see how it holds up. This runs entirely in your browser —
+        nothing is saved, sent, or stored anywhere.
+      </p>
+
+      <div class="card password-card reveal">
+        <label for="passwordInput" class="field-label">Enter a password to test</label>
+        <div class="password-input-wrap">
+          <i class="fa-solid fa-key input-icon"></i>
+          <input type="password" id="passwordInput" placeholder="Try typing a password..." autocomplete="off">
+          <button type="button" id="togglePassword" class="toggle-eye" aria-label="Show or hide password">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+
+        <!-- Strength meter -->
+        <div class="strength-meter" id="strengthMeter">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="strength-label" id="strengthLabel">Enter a password above to begin</p>
+
+        <!-- Suggestions -->
+        <ul class="suggestions-list" id="suggestionsList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PHISHING AWARENESS SECTION
+  ========================================================== -->
+  <section class="section section-alt" id="phishing">
+    <div class="container">
+      <p class="eyebrow center">DON'T GET HOOKED</p>
+      <h2 class="section-title center">Spot the Phishing Attempt</h2>
+      <p class="section-subtitle center">
+        Phishing attacks copy real brands almost perfectly. Train your eye to spot the small details
+        that give them away.
+      </p>
+
+      <!-- Email comparison -->
+      <div class="compare-grid reveal-group">
+        <div class="compare-card fake reveal">
+          <div class="compare-header"><i class="fa-solid fa-triangle-exclamation"></i> Suspicious Email</div>
+          <div class="mock-email">
+            <p><strong>From:</strong> support@secure-paypa1-alerts.com</p>
+            <p><strong>Subject:</strong> URGENT: Your account will be suspended in 24 hours!</p>
+            <p class="mock-body">Dear Customer, we detected unusual activity. Click below immediately to
+              verify your identity or your account will be permanently locked.</p>
+            <span class="mock-link">Verify My Account Now →</span>
+          </div>
+          <ul class="flag-tags">
+            <li><i class="fa-solid fa-flag"></i> Misspelled domain ("paypa1")</li>
+            <li><i class="fa-solid fa-flag"></i> Generic "Dear Customer" greeting</li>
+            <li><i class="fa-solid fa-flag"></i> Manufactured urgency / threat</li>
+          </ul>
+        </div>
+
+        <div class="compare-card real reveal">
+          <div class="compare-header"><i class="fa-solid fa-circle-check"></i> Legitimate Email</div>
+          <div class="mock-email">
+            <p><strong>From:</strong> service@paypal.com</p>
+            <p><strong>Subject:</strong> Your monthly statement is ready</p>
+            <p class="mock-body">Hi Asha, your account statement for June is now available. Log in to
+              your account directly to view your transaction history.</p>
+            <span class="mock-link safe">Log In at paypal.com →</span>
+          </div>
+          <ul class="flag-tags safe-tags">
+            <li><i class="fa-solid fa-check"></i> Correct, verified sender domain</li>
+            <li><i class="fa-solid fa-check"></i> Personalized greeting</li>
+            <li><i class="fa-solid fa-check"></i> No pressure or threats</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Website / URL comparison -->
+      <div class="compare-grid reveal-group">
+        <div class="compare-card fake reveal">
+          <div class="compare-header"><i class="fa-solid fa-triangle-exclamation"></i> Suspicious Website</div>
+          <div class="mock-browser">
+            <div class="mock-browser-bar"><i class="fa-solid fa-lock-open"></i> http://paypa1-secure-login.com</div>
+            <div class="mock-browser-body">Sign in to confirm your billing details to avoid suspension.</div>
+          </div>
+          <ul class="flag-tags">
+            <li><i class="fa-solid fa-flag"></i> No HTTPS / open padlock</li>
+            <li><i class="fa-solid fa-flag"></i> Look-alike domain spelling</li>
+            <li><i class="fa-solid fa-flag"></i> Uses "http" instead of secure "https"</li>
+          </ul>
+        </div>
+
+        <div class="compare-card real reveal">
+          <div class="compare-header"><i class="fa-solid fa-circle-check"></i> Legitimate Website</div>
+          <div class="mock-browser">
+            <div class="mock-browser-bar safe"><i class="fa-solid fa-lock"></i> https://www.paypal.com</div>
+            <div class="mock-browser-body">Welcome back! Log in to view your balance and transactions.</div>
+          </div>
+          <ul class="flag-tags safe-tags">
+            <li><i class="fa-solid fa-check"></i> Secure HTTPS connection (padlock)</li>
+            <li><i class="fa-solid fa-check"></i> Exact, correctly spelled domain</li>
+            <li><i class="fa-solid fa-check"></i> No urgent demands on landing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Red flag checklist -->
+      <h3 class="flags-heading">Universal Red Flags</h3>
+      <div class="grid grid-4 reveal-group">
+        <div class="flag-chip reveal"><i class="fa-solid fa-bolt"></i> Urgent or threatening language</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-user"></i> Generic, impersonal greetings</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-link-slash"></i> Mismatched or odd links / domains</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-money-bill-wave"></i> Requests for money or credentials</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-paperclip"></i> Unexpected attachments</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-gift"></i> Offers that seem too good to be true</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-spell-check"></i> Spelling and grammar mistakes</div>
+        <div class="flag-chip reveal"><i class="fa-solid fa-clock"></i> Pressure to act immediately</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CYBER SAFETY TIPS SECTION
+  ========================================================== -->
+  <section class="section" id="tips">
+    <div class="container">
+      <p class="eyebrow center">BUILD GOOD HABITS</p>
+      <h2 class="section-title center">Cyber Safety Tips</h2>
+      <p class="section-subtitle center">
+        Small habits, practiced consistently, are what actually keep people safe online. Check off
+        the ones you already follow.
+      </p>
+
+      <!-- Personal "safety score" progress bar, tracked in-memory via JS -->
+      <div class="progress-wrap reveal">
+        <div class="progress-label">
+          <span>Your Safety Score</span>
+          <span id="progressCount">0 / 8 habits</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="grid grid-4 reveal-group" id="tipsGrid">
+        <!-- Each tip card has a checkbox; script.js tallies checked items -->
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-key"></i></div>
+          <h3>Strong, Unique Passwords</h3>
+          <p>Use a different complex password for every account — never reuse one across sites.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Enable Two-Factor Authentication</h3>
+          <p>Add a second login step (app code, SMS, or key) so a stolen password alone isn't enough.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-link-slash"></i></div>
+          <h3>Avoid Suspicious Links</h3>
+          <p>Hover before you click. When in doubt, type the website address in yourself.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-rotate"></i></div>
+          <h3>Keep Software Updated</h3>
+          <p>Updates patch security holes. Turn on automatic updates whenever you can.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-shield-virus"></i></div>
+          <h3>Use Antivirus Software</h3>
+          <p>A trusted antivirus catches malware before it can do real damage.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-database"></i></div>
+          <h3>Back Up Your Data</h3>
+          <p>Keep copies of important files somewhere separate, ideally offline or in the cloud.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-wifi"></i></div>
+          <h3>Be Careful on Public Wi-Fi</h3>
+          <p>Avoid banking or entering passwords on open networks — use a VPN if you must.</p>
+        </label>
+        <label class="card tip-card reveal">
+          <input type="checkbox" class="tip-check">
+          <div class="icon-circle safe"><i class="fa-solid fa-comment-slash"></i></div>
+          <h3>Think Before You Share</h3>
+          <p>Oversharing personal details online makes it easier for attackers to impersonate you.</p>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       QUIZ SECTION
+  ========================================================== -->
+  <section class="section section-alt" id="quiz">
+    <div class="container">
+      <p class="eyebrow center">TEST YOURSELF</p>
+      <h2 class="section-title center">Cyber Security Awareness Quiz</h2>
+      <p class="section-subtitle center">Five quick questions. See how much you've picked up.</p>
+
+      <div class="card quiz-card reveal">
+        <!-- Quiz questions are rendered here by script.js from the quizData array -->
+        <form id="quizForm">
+          <div id="quizQuestions"></div>
+          <p class="quiz-warning" id="quizWarning">Please answer every question before submitting.</p>
+          <button type="submit" class="btn btn-primary" id="quizSubmitBtn">
+            Submit Answers <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+
+        <!-- Results panel, hidden until the quiz is submitted -->
+        <div class="quiz-results" id="quizResults">
+          <i class="fa-solid fa-circle-check result-icon"></i>
+          <h3>Your Score: <span id="scoreValue">0</span> / 5</h3>
+          <p id="scoreMessage"></p>
+          <button type="button" class="btn btn-ghost" id="retakeBtn">
+            <i class="fa-solid fa-rotate-left"></i> Retake Quiz
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT SECTION
+  ========================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="eyebrow center">GET IN TOUCH</p>
+      <h2 class="section-title center">Have Questions? Contact Us</h2>
+      <p class="section-subtitle center">
+        Spotted something that looks suspicious, or want to suggest a topic? Send us a message.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Info cards -->
+        <div class="contact-info reveal">
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div><h4>Email</h4><p>awareness@cybershield-demo.org</p></div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><h4>Based In</h4><p>Online — serving learners everywhere</p></div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div><h4>Response Time</h4><p>Within 1–2 business days</p></div>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" placeholder="Your full name">
+            <span class="error-text" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" placeholder="you@example.com">
+            <span class="error-text" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" rows="5" placeholder="How can we help?"></textarea>
+            <span class="error-text" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">
+            Send Message <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <p class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i> Message sent! (This is a front-end demo — connect a backend or form service to deliver it for real.)
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><i class="fa-solid fa-shield-halved"></i> Cyber<span class="accent-text">Shield</span></a>
+        <p>Practical, beginner-friendly cyber security awareness for everyday internet users.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#threats">Threats</a>
+        <a href="#password">Passwords</a>
+        <a href="#tips">Safety Tips</a>
+        <a href="#quiz">Quiz</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Learn More</h4>
+        <a href="https://www.cisa.gov" target="_blank" rel="noopener">CISA.gov</a>
+        <a href="https://staysafeonline.org" target="_blank" rel="noopener">StaySafeOnline.org</a>
+        <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">HaveIBeenPwned.com</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> CyberShield Awareness. Built for educational purposes.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
